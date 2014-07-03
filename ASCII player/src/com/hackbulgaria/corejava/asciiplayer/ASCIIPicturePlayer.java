@@ -64,7 +64,7 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
     }
 
     @Override
-    public String play() {
+    public String toString() {
         String result = "";
         for (int y = 0; y < this.image.getHeight() - scale; y += scale) {
             for (int x = 0; x < this.image.getWidth() - scale; x += scale) {
@@ -73,5 +73,10 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             result += "\n";
         }
         return result;
+    }
+    
+    @Override
+    public void play() {
+        System.out.println(toString());
     }
 }
