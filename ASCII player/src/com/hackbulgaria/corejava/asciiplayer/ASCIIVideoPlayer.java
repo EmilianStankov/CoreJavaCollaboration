@@ -30,7 +30,7 @@ public class ASCIIVideoPlayer implements ASCIIPlayer {
         ConsoleReader reader = new ConsoleReader();
         for (ASCIIPicturePlayer frame : frames) {
             frame.play();
-            Thread.sleep(10);
+            Thread.sleep(45);
             reader.clearScreen();
         }
     }
