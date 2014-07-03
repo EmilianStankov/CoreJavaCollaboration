@@ -19,7 +19,16 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             scale = 1;
         }
     }
-
+    
+    public ASCIIPicturePlayer(BufferedImage image) throws IOException {
+        this.image = image;
+        if (image.getWidth() > columns) {
+            scale = image.getWidth() / columns + 1;
+        } else {
+            scale = 1;
+        }
+    }
+    
     private int getBlockIntensity(int x, int y) {
         int averageIntensity = 0;
         for (int i = x; i < scale + x; i++) {
