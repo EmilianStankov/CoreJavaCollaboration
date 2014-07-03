@@ -1,3 +1,4 @@
+package com.hackbulgaria.corejava.asciiplayer;
 import java.io.File;
 import java.io.IOException;
 
