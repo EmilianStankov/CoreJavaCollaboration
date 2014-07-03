@@ -19,8 +19,8 @@ public class PlayerFactory {
                 result = new ASCIIGifPlayer(file);
                 break;
             case "mp4":
-                result = new ASCIIVideoPlayer(file);
-                break;
+//                result = new ASCIIVideoPlayer(file);
+//                break;
             default:
                 result = new ASCIIPicturePlayer(file);
         }

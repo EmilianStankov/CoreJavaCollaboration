@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class ASCIIPicturePlayer implements ASCIIPlayer {
-    private final static int columns = 140;
+    private final static int columns = 40;
     private BufferedImage image;
     private int scale;
 
