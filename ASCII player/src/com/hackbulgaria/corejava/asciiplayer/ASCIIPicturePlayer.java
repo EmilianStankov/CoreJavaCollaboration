@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class ASCIIPicturePlayer implements ASCIIPlayer {
-    private final static int columns = 140;
+    private final static int columns = 40;
     private BufferedImage image;
     private int scale;
 
@@ -19,7 +19,16 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             scale = 1;
         }
     }
-
+    
+    public ASCIIPicturePlayer(BufferedImage image) throws IOException {
+        this.image = image;
+        if (image.getWidth() > columns) {
+            scale = image.getWidth() / columns + 1;
+        } else {
+            scale = 1;
+        }
+    }
+    
     private int getBlockIntensity(int x, int y) {
         int averageIntensity = 0;
         for (int i = x; i < scale + x; i++) {
@@ -55,7 +64,7 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
     }
 
     @Override
-    public String play() {
+    public String toString() {
         String result = "";
         for (int y = 0; y < this.image.getHeight() - scale; y += scale) {
             for (int x = 0; x < this.image.getWidth() - scale; x += scale) {
@@ -64,5 +73,10 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             result += "\n";
         }
         return result;
+    }
+    
+    @Override
+    public void play() {
+        System.out.println(toString());
     }
 }

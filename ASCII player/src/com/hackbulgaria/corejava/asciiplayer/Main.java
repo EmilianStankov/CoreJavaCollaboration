@@ -3,8 +3,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        ASCIIPicturePlayer viewer = new ASCIIPicturePlayer(new File(args[0]));
-        System.out.println(viewer.play());
+    public static void main(String[] args) throws IOException, InterruptedException {
+//        ASCIIPicturePlayer viewer = new ASCIIPicturePlayer(new File(args[0]));
+//        viewer.play();
+        
+        ASCIIPlayer gif = PlayerFactory.newAsciiPlayer(new File(args[0]));
+        gif.play();
     }
 }

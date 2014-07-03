@@ -1,18 +1,34 @@
 package com.hackbulgaria.corejava.asciiplayer;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class ASCIIGifPlayer implements ASCIIPlayer {
-
-    File file;
     
-    public ASCIIGifPlayer (File file) {
-        this.file = file;
+    int scale;
+    ASCIIPicturePlayer frame;
+    GifDecoder decoder;
+    
+    public ASCIIGifPlayer (File file) throws IOException {        
+        BufferedInputStream stream = new BufferedInputStream(new FileInputStream(file));
+        decoder = new GifDecoder();
+        decoder.read(stream);
     }
-
+    
     @Override
-    public String play() {
-        // TODO Auto-generated method stub
-        return null;
+    public void play() throws IOException, InterruptedException {
+        int num = decoder.getFrameCount();
+        
+        for (int i = 0; i<num; i++) {
+            frame = new ASCIIPicturePlayer(decoder.getFrame(i));
+            long t = decoder.getDelay(i);
+            frame.play();
+            Thread.sleep(t);
+        }
     }
 }

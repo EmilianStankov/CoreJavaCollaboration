@@ -1,4 +1,7 @@
 package com.hackbulgaria.corejava.asciiplayer;
+
+import java.io.IOException;
+
 public interface ASCIIPlayer {
-    public String play();
+    public void play() throws IOException , InterruptedException;
 }
