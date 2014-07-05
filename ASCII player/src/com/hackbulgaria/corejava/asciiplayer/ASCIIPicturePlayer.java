@@ -1,4 +1,5 @@
 package com.hackbulgaria.corejava.asciiplayer;
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,15 +12,6 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
     private BufferedImage image;
     private int scale;
 
-    public ASCIIPicturePlayer(File file) throws IOException {
-        image = ImageIO.read(file);
-        if (image.getWidth() > columns) {
-            scale = image.getWidth() / columns + 1;
-        } else {
-            scale = 1;
-        }
-    }
-    
     public ASCIIPicturePlayer(BufferedImage image) throws IOException {
         this.image = image;
         if (image.getWidth() > columns) {
@@ -28,7 +20,16 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             scale = 1;
         }
     }
-    
+
+    public ASCIIPicturePlayer(File file) throws IOException {
+        image = ImageIO.read(file);
+        if (image.getWidth() > columns) {
+            scale = image.getWidth() / columns + 1;
+        } else {
+            scale = 1;
+        }
+    }
+
     private int getBlockIntensity(int x, int y) {
         int averageIntensity = 0;
         for (int i = x; i < scale + x; i++) {
@@ -64,6 +65,11 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
     }
 
     @Override
+    public void play() {
+        System.out.println(toString());
+    }
+
+    @Override
     public String toString() {
         String result = "";
         for (int y = 0; y < this.image.getHeight() - scale; y += scale) {
@@ -73,10 +79,5 @@ public class ASCIIPicturePlayer implements ASCIIPlayer {
             result += "\n";
         }
         return result;
-    }
-    
-    @Override
-    public void play() {
-        System.out.println(toString());
     }
 }
