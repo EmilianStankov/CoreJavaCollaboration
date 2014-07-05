@@ -11,5 +11,8 @@ public class Main {
 //        viewer.play();
         ASCIIPlayer gif = PlayerFactory.newAsciiPlayer(new File(args[0]));
         gif.play();
+        
+        //create utility method
+        //crate BufferedImage and Graphics, draw picture with text
     }
 }

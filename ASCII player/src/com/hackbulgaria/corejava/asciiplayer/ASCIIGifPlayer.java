@@ -45,6 +45,7 @@ public class ASCIIGifPlayer implements ASCIIPlayer {
         text.setSize(fr.getWidth(), fr.getHeight());
         fr.add(text);
         
+        
         Font f = new Font(Font.MONOSPACED, 10, 4);
         text.setFont(f);
          
