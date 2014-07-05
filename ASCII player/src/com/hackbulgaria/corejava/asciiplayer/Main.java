@@ -7,8 +7,6 @@ import javax.swing.JTextArea;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-//        ASCIIPicturePlayer viewer = new ASCIIPicturePlayer(new File(args[0]));
-//        viewer.play();
         ASCIIPlayer gif = PlayerFactory.newAsciiPlayer(new File(args[0]));
         gif.play();
     }
