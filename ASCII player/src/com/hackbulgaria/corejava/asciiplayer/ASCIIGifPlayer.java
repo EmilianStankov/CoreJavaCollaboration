@@ -101,14 +101,6 @@ public class ASCIIGifPlayer implements ASCIIPlayer {
             images.add(image);
         }
 
-        // try
-        // {
-        // ImageIO.write(image, "png", new
-        // File("C:\\Users\\RUSHI\\Desktop\\image.png"));
-        // }
-        // catch(Exception ek) {
-        // }
-
         AnimatedGifEncoder e = new AnimatedGifEncoder();
         e.start(new FileOutputStream(new File("C:\\Users\\RUSHI\\Desktop\\Child2.gif")));
         e.setDelay(50);
