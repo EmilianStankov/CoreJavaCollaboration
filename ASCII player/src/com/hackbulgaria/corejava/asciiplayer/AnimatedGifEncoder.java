@@ -8,6 +8,7 @@ import java.awt.image.*;
  * Class AnimatedGifEncoder - Encodes a GIF file consisting of one or more
  * frames.
  * 
+ * 
  * <pre>
  *  Example:
  *     AnimatedGifEncoder e = new AnimatedGifEncoder();

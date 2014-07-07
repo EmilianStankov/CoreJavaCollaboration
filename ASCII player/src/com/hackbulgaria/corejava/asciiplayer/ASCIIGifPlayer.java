@@ -16,7 +16,6 @@ import javax.swing.JTextArea;
 
 import jline.ConsoleReader;
 
-
 public class ASCIIGifPlayer implements ASCIIPlayer {
     
     int scale;
